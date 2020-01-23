@@ -1,0 +1,25 @@
+
+
+git config --list --show-origin //shows the location of git configuration files
+
+git config --global user.name "username"
+git config --global user.email "emailaddress"
+
+git config --list //show list of git configuration set
+
+Create a new repositorymkdir jenkins-java-ubuntu-precise64
+cd jenkins-java-ubuntu-precise64
+git init
+touch README.md
+git add README.md
+git commit -m "first commit"
+git remote add origin http://qcvgit02.allegisgroup.com/pipeline/jenkins-java-ubuntu-precise64.git
+git push -u origin master
+
+
+
+//for spring project github
+git remote add origin https://github.com/rjilani/SpringProjects.git
+git add newfile/dir
+git commit -m newfile/dir
+git git push -u origin master

@@ -1,0 +1,39 @@
+git config --global -e
+
+git config --list --show-origin  //show the files where the configurations are safed
+git config --list --system --show-origin
+git config --list --local
+git config --list //show list of git configuration
+
+git config --global user.name "username"
+git config --global user.email "emailaddress"
+git config --global core.autocrlf true
+
+ssh-keygen -t rsa -b 4096 -C "rashidjilani@gmail.com" //generates the ssh keygen
+clip < ~/.ssh/id_rsa.pub  //copy the ssh key to add to github or bitbucket
+
+set HOME=C:\users\rjilani
+
+location of.bashrc C:\users\rjilani
+
+show (to login to gitbucket)
+ 
+git remote add origin git@bitbucket.org:rashidjilani/test2.git
+
+git push -u origin master
+
+
+git clone 
+
+git remote update && git status (check the status on the remote repository)
+git pull origin master
+
+git@bitbucket.org:rashidjilani/test2.git test3 (cloning a repo with different name)origin 
+
+git diff master origin/master (see the diff) 
+
+How to meger
+1. Resolved the conflict
+2. git add
+3. git commit -m 
+4. git merge

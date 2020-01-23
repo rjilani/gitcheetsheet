@@ -1,0 +1,115 @@
+[list git config file location]
+git config --global -e
+
+git config --list --show-origin  //show the files where the configurations are safed
+git config --list --system --show-origin
+git config --list --local
+git config --list //show list of git configuration
+
+git config --global user.name "username"
+git config --global user.email "emailaddress"
+git config --global core.autocrlf true
+
+[how to create and push a repository to git hub or master brnach]
+echo "# javascript" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin git@github.com:rjilani/javascript.git
+git push -u origin master
+
+[push an existing repository from the command line]
+git remote add origin git@github.com:rjilani/javascript.git
+git push -u origin master
+
+[git tips]
+origin/master (local master pointer representing the remote master)
+origin master (remote master branch)
+HEAD (local pointer pointing to latest commit)
+git fetch origin master
+git merge origin/master
+
+[create branch and checkout]
+git checkout -b dev
+
+[git rebase workflow]
+git fetch 
+git rebase origin/master
+git --continue
+
+[git rebase workflow with conflicts]
+git fetch 
+git rebase origin/master
+open the conflicted file made changes
+git add fileName
+git --continue (no commit needed, don't do any commit)
+
+[how to set beyond comapre]
+git config --global diff.tool bc3
+git config --global difftool.bc3.path "C:/Program Files/Beyond Compare 4/bcomp.exe"
+
+[diff]
+git diff //diff b/w the workspace and last commit
+git diff --staged or git diff --cached //diff b/w the index and last commit
+git diff HEAD * //diff b/w working space and last commit
+git difftool -d --tool=bc3 dev property-address-xfactor (use with beyond compare)
+git difftool -d --tool=bc3 dev xfactor-property-ui-component
+git diff dev..property-address-xfactor (used without beyond compare)
+git diff --name-only dev xfactor-property-ui-component (only names of files that have changed)
+git diff dev..property-address-xfactor  > "Y:\My Documents\code_analysis\diffs.txt"
+git diff --name-only dev Xfactor-PropertyAddress-EdcDisclosure > "Y:\My Documents\code_analysis\diffPropertyAddress-EdcDisclosure.txt"
+git log -p HEAD..FETCH_HEAD //local vs remote, do git fetch before you run this command
+
+git diff --name-only feature/branchname..feature/branchname //Diff two branches and show the files only
+
+git diff --name-status feature/branchname..feature/branchname //Diff two branches and show the status e.g added, removed, updated
+
+git diff feature/branchname..feature/branchname
+
+[branch]
+git branch -r > "Y:\My Documents\code_analysis\remote_braches.txt"
+git branch -d [name of branch] //How to delete a branch
+git checkout -b myFeature Property-construction-question //To create a branch from another branch 
+
+[discrad changes, resert, revert]
+git checkout filename //discarading changes in a file from working sapce
+git checkout . //discarading all changes from working sapce
+git reset filename //discarading changes in a file from index or staging --changes still in working area
+git reset HEAD * //discarading all changes from index or stagging -- cahnges still in working area
+git reset HEAD~1 //discarading all changes from last local commit -- changes still in working area
+git reset --mixed HEAD~1 //default keep changes in working space
+git reset --soft HEAD~1 //keep changes in staging area
+git reset --hard HEAD~1 //reset to previus commit and no changes are in index or stagging area
+git revert commitid   //reverting to remote branch
+
+[log]
+git log --author "rashid"
+git log -p -2 //shows the difference introduced in each commit. You can also use -n to show the difference b/w last n commits
+git log --stat //show the stats about commits
+git log --shortstat //show the shortstats about commits
+git log --shortstat -1 //show the shortstats about last n commits
+git log --stat 27243c49b98967b6b41abff1863382c464b3e5f7 //log about a specific commit
+git log --pretty=oneline
+git log --name-only 
+
+[show]
+git show acf29706654303b1989ce1799ef5f4e0e77ef056
+
+
+[blame]
+git blame src/mortgage-flow/features/demographics/components/ethnicity-demographics.jsx
+git blame --since=3.weeks src/mortgage-flow/features/demographics/components/ethnicity-demographics.jsx
+
+[list repo by dates]
+
+git branch -a --sort=-committerdate  # DESC
+git branch -a --sort=committerdate
+
+for branch in `git branch -r | grep -v HEAD`;do echo -e `git show --format="%ci %cr" $branch | head -n 1` \\t$branch; done | sort -r
+
+//list tags in a repo
+git tag
+checkout tags/v1.11.2
+
+git stash
+git stash pop
