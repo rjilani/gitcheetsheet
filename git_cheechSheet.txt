@@ -66,6 +66,9 @@ git diff --name-status feature/branchname..feature/branchname //Diff two branche
 
 git diff feature/branchname..feature/branchname
 
+git diff origin/feature/OPSSTE-26165..origin/feature/OPSSTE-25657 src/main/java/[fully qualified name of the source file] please see the examle below
+git diff origin/feature/OPSSTE-26165..origin/feature/OPSSTE-25657 src/main/java/com/swacorp/opssuite/kinesis/producer/OpssKinesisStreamProducer.java
+
 [branch]
 git branch -r > "Y:\My Documents\code_analysis\remote_braches.txt"
 git branch -d [name of branch] //How to delete a branch
