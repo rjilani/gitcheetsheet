@@ -114,5 +114,13 @@ for branch in `git branch -r | grep -v HEAD`;do echo -e `git show --format="%ci 
 git tag
 checkout tags/v1.11.2
 
+//stash
 git stash
+
+//revert changes in staging
+git checkout -- .
+
+//git adding a new remote
+
+git remote add [new origin] [new ulr]
 git stash pop
